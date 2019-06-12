@@ -1,0 +1,85 @@
+.home_dash_color1 .mini-stats{margin-bottom:10px;background: #3e52b4 !important; color:#ffffff;height:100px;}
+.home_dash_color2 .mini-stats{margin-bottom:10px;background: #4bb050 !important;color:#ffffff; height:100px;}
+.home_dash_color3 .mini-stats{margin-bottom:10px;background: #f67c01 !important;color:#ffffff;height:100px;}
+.home_dash_color4 .mini-stats{margin-bottom:10px;background: #ff5353 !important;color:#ffffff; height:100px;}
+.mini-stats p{color:#ffffff;}
+.mini-stats h3{color:#ffffff;}
+.customer-header{
+	background-color: #0875CE;
+    height: 34px;
+}
+.report-header
+{
+	 width: 100%;
+    height: 42px;
+    background-color: #e8edf2;
+    padding-top: 8px;
+}
+.report-btn
+{
+	 height: 25px;
+    font-size: 11px;
+    padding-top:1px;
+}
+.customer-header h5
+{
+	color:white;
+}
+.form-group {
+    margin-bottom: 46px;
+}
+.wrapper    {
+	margin-left: 400px;
+}
+.cust
+{
+	background-color: #0875CE;
+    color: white;
+    padding: 3px;
+    font-size: 12px;
+    float: left;
+    margin-top: 5px;
+    margin-left:20px;
+}
+}
+.layout
+{
+	border-style: double;
+    padding: 16px;
+}
+.activity-sec .dataTables_length 
+{
+	float:left;
+	width:45%!important;
+	font-size:12px;
+}
+	
+.activity-sec .dataTables_filter
+{
+	float:right;
+	width:50%!important;	
+	font-size:12px;
+}
+.activity-sec .dataTables_filter input{border:#ccc 1px solid;}
+.activity-sec .dataTables_info
+{
+	float:left;
+	width:45%!important;
+	font-size:12px;	
+}
+.activity-sec .dataTables_paginate
+{
+	float:right;
+	width:50%!important;
+	font-size:12px;	
+}
+
+.table{border:1px solid #ccc; width:100%;}
+.table thead{background: #fcfcfc; font-size:12px;}
+.table tbody{background: #ffffff; font-size:12px;}
+.fa-pencil{color:#ffffff !important;}
+.fa-eye{color:#ffffff !important;}
+.fa-trash-o{color:#ffffff !important;}
+.table .table_box_blue{padding:3px; border-radius:2px; margin-left:2px; background: #0875ce;}
+.table .table_box_green{padding:3px; border-radius:2px; margin-left:2px; background: #127c46;}
+.table .table_box_red{padding:3px; border-radius:2px; margin-left:2px; background: #b20303;}
