@@ -101,6 +101,7 @@
                     <li><a href="{{url('home')}}" title=""><i class="fa fa-dashboard"></i> <span>Dashboard</a></li>
                     <li><a href="{{url('company')}}" title=""><i class="fa fa-user"></i> <span>Company Details</a></li>
                     <li><a href="{{url('country')}}" title=""><i class="fa fa-user"></i> <span>Country Details</a></li>
+                    <li><a href="{{url('state')}}" title=""><i class="fa fa-user"></i> <span>State Details</a></li>
                     <!-- <li class="menu-item-has-children">
                     <a href="" title=""><i class="fa fa-file"></i> <span>Stock Details</a> 
                         <ul>

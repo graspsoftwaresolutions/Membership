@@ -21,7 +21,6 @@ class CreateStateTable extends Migration
             $table->integer('status');
         });
     }
-
     /**
      * Reverse the migrations.
      *
