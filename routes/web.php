@@ -27,3 +27,11 @@ Route::get('company-view/{id}','CompanyController@view');
 Route::get('company-edit/{id}','CompanyController@edit');
 Route::post('company_edit','CompanyController@update');
 Route::get('company-delete/{id}','CompanyController@delete');
+//Country Details
+Route::get('country','CountryController@index');
+Route::get('add-country','CountryController@addCountry');
+Route::post('country_save','CountryController@save');
+Route::get('country-view/{id}','CountryController@view');
+Route::get('country-edit/{id}','CountryController@edit');
+Route::post('country_edit','CountryController@update');
+Route::get('country-delete/{id}','CountryController@delete');

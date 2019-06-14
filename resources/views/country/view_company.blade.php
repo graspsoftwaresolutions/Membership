@@ -13,7 +13,7 @@
 <div class="row">
         	<div class="customer-header">
         	<div class="col-md-8">
-        	<h5><strong> Edit Company Details</strong></h5>
+        	<h5><strong> View Company Details</strong></h5>
         	</div>
 	        <div class="col-md-4">
 	        	<a class="cust" href="{{url('company')}}">Back</a>
@@ -21,12 +21,10 @@
 	    	</div>
         	<div class="widget">
         	<div class="activity-sec">
-                 
                     <div class="row">
-                        <form method="post" action="{{url('company_edit')}}">
-                        @foreach($data['company_edit'] as $key=>$value)
+                        <form method="post" action="{{url('company_save')}}">
+                        @foreach($data['company_view'] as $key=>$value)
                         @csrf
-                        <input type="hidden" name="id" value="{{$value->id}}">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -85,13 +83,7 @@
                                  </div>
                             </div>
                             @endforeach
-                        </div><br>
-                        <div class="row">
-                            <div class="wrapper">            
-                                    <input type="submit" name="submit" value="Update" class="btn btn-success">
-                                    <input type="submit" name="Cancel" value="Cancel" class="btn btn-danger">
-                            </div>
-                        </div> 
+                        </div>
                         <br>
                     </form>
                     </div>
