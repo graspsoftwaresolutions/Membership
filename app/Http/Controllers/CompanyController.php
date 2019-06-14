@@ -47,9 +47,18 @@ class CompanyController extends Controller
         $company['email'] = $request->input('email');
         $company['address_one'] = $request->input('address_one');
         $company['address_two'] = $request->input('address_two');
-        $id = $this->Company->StoreCompany($company);
+        
+        $data_exists = DB::table('company')->where('company_name', '=', $company['company_name'])->count();
+        
+        if($data_exists > 0 && $data_exists !='' && $data_exists != 'NULL')
+        {
+            return redirect('add-company')->with('message','Company Name Already Exists');
+        }
+        else{
+            $id = $this->Company->StoreCompany($company);
         return redirect('company')->with('message','Company Name Added Succesfully');
-    }
+        }
+    } 
     public function view($id)
     {
         $data['company_view'] = DB::table('company')->where('id','=',$id)->get(); 
@@ -76,5 +85,5 @@ class CompanyController extends Controller
 	{
 		$data = DB::table('company')->where('id','=',$id)->update(['status'=>'0']);
 		return redirect('company')->with('message','Company Deleted Succesfully');
-	}
+	} 
 }
