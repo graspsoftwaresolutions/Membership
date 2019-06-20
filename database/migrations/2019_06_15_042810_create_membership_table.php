@@ -19,7 +19,7 @@ class CreateMembershipTable extends Migration
             $table->string('member_title');
             $table->string('name');
             $table->string('gender');
-            $table->string('designation');
+            $table->int('designation_id');
             $table->string('email');
             $table->integer('phone');
             $table->integer('country');
@@ -28,7 +28,7 @@ class CreateMembershipTable extends Migration
             $table->string('address_one');
             $table->string('address_two');
             $table->string('address_three');
-            $table->string('race');
+            $table->int('race_id');
             $table->string('old_ic');
             $table->string('new_ic');
             $table->date('dob');

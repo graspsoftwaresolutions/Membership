@@ -23,6 +23,8 @@ class MembershipController extends Controller
     {
         $data['country_view'] = DB::table('country')->select('id','country_name')->where('status','=','1')->get();
         $data['company_view'] = DB::table('company')->where('status','=','1')->get();
+        $data['designation_view'] = DB::table('designation')->where('status','=','1')->get();
+        $data['race_view'] = DB::table('race')->where('status','=','1')->get();
        
         return view('membership.member_register')->with('data',$data);  
     }
@@ -68,12 +70,12 @@ class MembershipController extends Controller
             'phone.required'=>'Please Enter Mobile Number',
             'email.required'=>'Please Enter Email Address',
             'designation.required'=>'Please choose  your Designation',
-            'race.required'=>'Please Enter your Race Number',
+            'race.required'=>'Please Choose your Race ',
             'country_id.required'=>'Please choose  your Country',
             'state_id.required'=>'Please choose  your State',
             'city_id.required'=>'Please choose  your city',
             'address_one.required'=>'Please Enter your Address',
-            'doj.required'=>'Please choose DOB',
+            'dob.required'=>'Please choose DOB',
             'new_ic.required'=>'Please Enter New Ic Number',
             'company_id.required'=>'Please Choose Company Name',
 
@@ -85,8 +87,8 @@ class MembershipController extends Controller
         $member['gender'] = $request->input('gender');
         $member['phone'] = $request->input('phone');
         $member['email'] = $request->input('email');
-        $member['designation'] = $request->input('designation');
-        $member['race'] = $request->input('race');
+        $member['designation_id'] = $request->input('designation');
+        $member['race_id'] = $request->input('race');
         $member['country_id'] = $request->input('country_id');
         $member['state_id'] = $request->input('state_id');
         $member['city_id'] = $request->input('city_id');
@@ -99,8 +101,17 @@ class MembershipController extends Controller
         $member['new_ic'] = $request->input('new_ic');
         $member['company_id'] = $request->input('company_id');
 
-        //print_r($request->all()); exit;   
-        $id = $this->Membership->StoreMembership($member);
-        return redirect()->back()->with('message','Registration Successfull');
+        $email_exists = DB::table('membership')->where([
+                        ['email','=',$member['email']],
+                        ['status','=','1']
+                        ])->count();
+        if($email_exists > 0)
+        {
+            return redirect()->back()->with('message','Email already Exists');
+        }
+        else{
+            $id = $this->Membership->StoreMembership($member);
+            return redirect()->back()->with('message','Registration Successfull');
+        }
     }
 }

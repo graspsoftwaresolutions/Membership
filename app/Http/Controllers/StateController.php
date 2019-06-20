@@ -41,7 +41,10 @@ class StateController extends Controller
         ]);
         $state['country_id'] = $request->input('country_id');
         $state['state_name'] = $request->input('state_name');
-        $data_exists = DB::table('state')->where('state_name','=', $state['state_name'])->count();
+        $data_exists = DB::table('state')->where([
+           ['state_name','=', $state['state_name']],
+           ['status','=','1'] 
+            ])->count();
         if($data_exists>0 && $data_exists!='' && $data_exists!='NULL')
         {
             return redirect('state')->with('message','State Name Already Exists');

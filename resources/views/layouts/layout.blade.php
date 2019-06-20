@@ -74,13 +74,10 @@
 </div><!-- Toggle Content -->
 <div class="top-bar">
     <div class="logo">
-        <a href="index.html" title=""><i class="fa fa-deviantart"></i> Members Ship Login</a>
+        <a href="index.html" title=""><i class="fa fa-deviantart"></i> Membership Login</a>
          <div class="menu-options"><span class="menu-action"><i></i></span></div>
     </div>
-    <form class="search-form">
-        <input type="text" placeholder="Search Here..." />
-        <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
+    
     <ul>
         <!-- <li><a title=""><i class="fa fa-plus"></i>New Orders</a></li> 
         <li><a title=""><i class="fa fa-cloud-upload"></i>Upload Files</a></li> -->
@@ -103,6 +100,8 @@
                     <li><a href="{{url('country')}}" title=""><i class="fa fa-user"></i> <span>Country Details</a></li>
                     <li><a href="{{url('state')}}" title=""><i class="fa fa-user"></i> <span>State Details</a></li>
                     <li><a href="{{url('city')}}" title=""><i class="fa fa-user"></i> <span>City Details</a></li>
+                    <li><a href="{{url('designation')}}" title=""><i class="fa fa-user"></i> <span>Designation Details</a></li>
+                    <li><a href="{{url('race')}}" title=""><i class="fa fa-user"></i> <span>Race Details</a></li>
                     <li><a href="{{url('membership_register')}}" title=""><i class="fa fa-user"></i> <span>Membership Register</a></li>
                     <!-- <li class="menu-item-has-children">
                     <a href="" title=""><i class="fa fa-file"></i> <span>Stock Details</a> 

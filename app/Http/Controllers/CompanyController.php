@@ -48,7 +48,10 @@ class CompanyController extends Controller
         $company['address_one'] = $request->input('address_one');
         $company['address_two'] = $request->input('address_two');
         
-        $data_exists = DB::table('company')->where('company_name', '=', $company['company_name'])->count();
+        $data_exists = DB::table('company')->where([
+            ['company_name', '=', $company['company_name']],
+            ['status','=','1']
+            ])->count();
         
         if($data_exists > 0 && $data_exists !='' && $data_exists != 'NULL')
         {

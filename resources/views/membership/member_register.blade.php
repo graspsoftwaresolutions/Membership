@@ -11,6 +11,12 @@
 </div>
 @endif
 <script src="http://www.codermen.com/js/jquery.js"></script>
+<style>
+    #errmsg
+    {
+    color: red;
+    }
+  </style>
 <div class="row">
         	<div class="customer-header">
         	<div class="col-md-8">
@@ -22,7 +28,7 @@
         	<div class="activity-sec">
                  
                     <div class="row">
-                        <form method="post" action="{{url('membership_save')}}">
+                        <form method="post" autocomplete="off" id="membership" action="{{url('membership_save')}}">
                         @csrf
                         <div class="row">
                             <div class="col-md-6">
@@ -79,8 +85,9 @@
                                  <label for="Name" class="control-label col-md-4">Mobile Number</label>
                                  <div class="col-md-7"> 
                                     <input type="text" placeholder="Enter Mobile Number" name="phone" id="phone" class="form-control">
-                                    @if($errors->has('phone'))
-                                    <span class="text-danger">{{$errors->first('phone')}}</span>
+                                    <span id="errmsg"></span>
+                                    @if($errors->has('phone'))  
+                                    <span class="text-danger" >{{$errors->first('phone')}}</span>
                                     @endif
                                  </div>
                                  </div>
@@ -102,10 +109,10 @@
                                 <div class="form-group">
                                  <label for="Name" class="control-label col-md-4">Designation</label>
                                  <div class="col-md-7"> 
-                                    <select name="designation" class="form-control">>
-                                    <option value="xxx">xxx</option>
-                                    <option value="xxx">xxx</option>
-                                    <option value="xxx">xxx</option>
+                                    <select name="designation" id="designation" class="form-control">
+                                    @foreach($data['designation_view'] as $key=>$value)
+                                    <option value="{{$value->id}}">{{$value->designation_name}}</option>
+                                    @endforeach
                                     </select>
                                     @if($errors->has('designation'))
                                     <span class="text-danger">{{$errors->first('designation')}}</span>
@@ -117,7 +124,11 @@
                                 <div class="form-group">
                                  <label for="Race" class="control-label col-md-4">Race</label>
                                  <div class="col-md-7"> 
-                                    <input type="text" name="race" id="race" placeholder="Enter race Number" class="form-control">
+                                    <select name="race" id="race" class="form-control">
+                                    @foreach($data['race_view'] as $key=>$value)
+                                    <option value="{{$value->id}}">{{$value->race_name}}</option>
+                                    @endforeach
+                                    </select>
                                     @if($errors->has('race'))
                                     <span class="text-danger">{{$errors->first('race')}}</span>
                                     @endif
@@ -239,7 +250,7 @@
                                 <div class="form-group">
                                  <label for="exampleInputEmail1" class="control-label col-md-4">New Ic Number</label>
                                  <div class="col-md-7"> 
-                                    <input type="text" name="new_ic" id="new_ic" placeholder="Enter email" id="exampleInputEmail1" class="form-control">
+                                    <input type="text" name="new_ic" id="new_ic" placeholder="Enter New IC number" id="exampleInputEmail1" class="form-control">
                                     @if($errors->has('new_ic'))
                                     <span class="text-danger">{{$errors->first('new_ic')}}</span>
                                     @endif
@@ -253,7 +264,7 @@
                                  <label for="Name" class="control-label col-md-4">Company</label>
                                  <div class="col-md-7"> 
                                    
-                                        <select name="company_id" class="form-control">
+                                        <select name="company_id" id="company" class="form-control">
                                         @foreach($data['company_view'] as $key=>$value) 
                                         <option value="{{$value->id}}">{{$value->company_name}}</option>
                                         @endforeach
@@ -280,6 +291,133 @@
         </div>
 <script type="text/javascript">
 $(document).ready(function(){
+    $("#phone").keypress(function (e) {
+     if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+        $("#errmsg").html("Digits Only").show().fadeOut("slow");
+               return false;
+    }
+   });
+   
+    if($('#membership').lenght >0)
+    {
+        $('#membership').validate({
+            rules: {
+                member_title: {
+                    required: true,
+                    maxlength: 5
+                },
+                member_number: {
+                    required: true,
+                    maxlength: 20,
+                },
+                name: {
+                    required: true,
+                    maxlength:20,
+                },
+                gender: {
+                    required: true,
+                },
+                phone: {
+                    required: true,
+                    maxlength: 15,
+                    minlength: 10,
+                    digits: true,
+                },
+                email: {
+                    required: true,
+                    maxlength: 50,
+                    email: true,
+                },
+                designation: {
+                    required: true,
+                },
+                race: {
+                    required: true,
+                },
+                country: {
+                    required:true,
+                },
+                state: {
+                    required:true,
+                },
+                city: {
+                    required:true,
+                },
+                address_one: {
+                    required:true,
+                },
+                dob: {
+                    required:true,
+                },
+                new_ic: {
+                    required:true,
+                    minlength: 3,
+                    maxlength: 20,
+                },
+                company: {
+                    required:true,
+                },
+            },
+            messages: {
+                member_title: {
+                    required: "Please Enter Your Title ",
+                    maxlength: "maxlength be 5 characters long",
+                },
+                member_number: {
+                    required: "Please Enter Member NUmber",
+                    maxlength: "maxlength be 20 characters long",
+                },
+                name: {
+                    required: "Please Enter Your Name",
+                    maxlength: "maxlength be 20 characters long",
+                },
+                gender: {
+                    required: "Please choose Gender",
+                },
+                phone: {
+                    required: true,
+                    maxlength: "The contact number should be 15 digits",
+                    minlength: "The contact number should be 10 digits",
+                    digits: "Please enter only numbers",
+                },
+                email: {
+                    required: "Please enter valid email",
+                    maxlength: "The email name should less than or equal to 50 characters",
+                    email: "Please enter valid email",
+                    },
+                designation: {
+                    required: "Please choose  your Designation",
+                },
+                race: {
+                    required: "Please Choose your Race ",
+                },
+                country: {
+                    required:"Please choose  your Country",
+                },
+                state: {
+                    required:"Please choose  your State",
+                },
+                city: {
+                    required:"Please choose  your city",
+                },
+                address_one: {
+                    required:"Please Enter your Address",
+                },
+                dob: {
+                    required:"Please choose DOB",
+                },
+                new_ic: {
+                    required:"Please Enter New Ic Number",
+                    minlength: "Minimum length should be 3 chareters",
+                    maxlength: "MAximum length  be 20 chareters",
+                },
+                company: {
+                    required:"Please Choose Company Name",
+                },      
+           },
+        })
+    }
+    
     $('#country').change(function(){
     var countryID = $(this).val();    
     if(countryID){

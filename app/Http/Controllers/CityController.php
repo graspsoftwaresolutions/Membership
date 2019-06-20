@@ -37,7 +37,10 @@ class CityController extends Controller
         $id = $request->country_id;
         $res = DB::table('state')
                 ->select('id','state_name')
-                ->where('country_id','=',$id)->get();
+                ->where([
+                    ['country_id','=',$id],
+                    ['status','=','1']
+                ])->get();
                 return response()->json($res);
     }
     public function save(Request $request)
@@ -58,7 +61,10 @@ class CityController extends Controller
         $data_exists = DB::table('country')
                     ->join('state','country.id','=','state.country_id')
                     ->join('city','city.state_id','=','state.id')
-                    ->where('city.city_name','=',$city['city_name'])->count();
+                    ->where([
+                        ['city.city_name','=',$city['city_name']],
+                        ['city.status','=','1'],
+                        ])->count();
 
         if($data_exists>0 && $data_exists!='' && $data_exists!='NULL')
         {
@@ -75,7 +81,10 @@ class CityController extends Controller
         $data['city_view'] =  DB::table('country')
         ->join('state','country.id','=','state.country_id')
         ->join('city','city.state_id','=','state.id')
-        ->where('city.id','=',$id)->get();
+        ->where([
+            ['city.id','=',$id],
+            ['city.status','=','1']
+        ])->get();
         return view('city.view_city')->with('data',$data);
     }
     public function edit($id)
@@ -83,7 +92,10 @@ class CityController extends Controller
         $data['city_view'] =  DB::table('country')
         ->join('state','country.id','=','state.country_id')
         ->join('city','city.state_id','=','state.id')
-        ->where('city.id','=',$id)->get();
+        ->where([
+            ['city.id','=',$id],
+            ['city.status','=','1']
+        ])->get();
         return view('city.edit_city')->with('data',$data);
     }
     public function update(Request $request)

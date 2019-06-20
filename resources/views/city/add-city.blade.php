@@ -87,7 +87,6 @@ $(document).ready(function(){
             }else{
                $("#state").empty();
             }
-            //console.log(res);
            }
         });
     }else{

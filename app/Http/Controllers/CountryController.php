@@ -32,7 +32,10 @@ class CountryController extends Controller
             'country_name.required'=>'please enter Country name',
         ]);
         $country['country_name'] = $request->input('country_name');
-        $data_exists = DB::table('country')->where('country_name','=',$country['country_name'])->count();
+        $data_exists = DB::table('country')->where([
+            ['country_name','=',$country['country_name']],
+            ['status','=','1'],
+            ])->count();
         if($data_exists>0 && $data_exists!='' && $data_exists!='NULL')
         {
             return redirect('add-country')->with('message','Country Name Already Exists');
