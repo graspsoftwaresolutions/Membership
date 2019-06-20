@@ -43,3 +43,19 @@ Route::get('state-view/{id}','StateController@view');
 Route::get('state-edit/{id}','StateController@edit');
 Route::post('state_edit','StateController@update');
 Route::get('state-delete/{id}','StateController@delete');
+//City Details 
+Route::get('city','CityController@index');
+Route::get('add-city','CityController@addCity');
+Route::get('get-state-order-list','CityController@getStateorderList');
+Route::post('city_save','CityController@save');
+Route::get('city-view/{id}','CityController@view');
+Route::get('city-edit/{id}','CityController@edit');
+Route::post('city_update','CityController@update');
+Route::get('city-delete/{id}','CityController@delete');
+//Membership 
+Route::get('membership_register','MembershipController@index');
+Route::post('membership_save','MembershipController@Save');
+
+Route::get('dropdownlist','MembershipController@countries_list');
+Route::get('get-state-list','MembershipController@getStateList');
+Route::get('get-cities-list','MembershipController@getCitiesList');

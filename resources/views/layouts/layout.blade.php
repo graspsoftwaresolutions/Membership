@@ -102,6 +102,8 @@
                     <li><a href="{{url('company')}}" title=""><i class="fa fa-user"></i> <span>Company Details</a></li>
                     <li><a href="{{url('country')}}" title=""><i class="fa fa-user"></i> <span>Country Details</a></li>
                     <li><a href="{{url('state')}}" title=""><i class="fa fa-user"></i> <span>State Details</a></li>
+                    <li><a href="{{url('city')}}" title=""><i class="fa fa-user"></i> <span>City Details</a></li>
+                    <li><a href="{{url('membership_register')}}" title=""><i class="fa fa-user"></i> <span>Membership Register</a></li>
                     <!-- <li class="menu-item-has-children">
                     <a href="" title=""><i class="fa fa-file"></i> <span>Stock Details</a> 
                         <ul>
