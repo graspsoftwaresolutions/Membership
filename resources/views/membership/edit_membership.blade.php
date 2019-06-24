@@ -165,9 +165,11 @@
                                  <label for="exampleInputEmail1" class="control-label col-md-4">State Name <span style="color:red">*<span></label>
                                  <div class="col-md-7"> 
                                  <select tabindex="10"  name="state_id" id="state" class="form-control">
+                                      @foreach($data['state_view'] as $key=>$values)
+                                       <option value="{{$values->id}}" <?php if($values->id == $value->state_id) { echo "selected";} ?>>{{$values->state_name}}</option>
+                                       @endforeach
                                 
-                                
-                                </select>
+                                  </select>
                                 @if($errors->has('state_id'))
                                     <span class="text-danger">{{$errors->first('state_id')}}</span>
                                     @endif
@@ -181,7 +183,9 @@
                                  <label for="Name" class="control-label col-md-4">City Name <span style="color:red">*<span></label>
                                  <div class="col-md-7"> 
                                  <select tabindex="11"  class="form-control" name="city_id" id="city">
-                                
+                                      @foreach($data['city_view'] as $key=>$values)
+                                       <option value="{{$values->id}}" <?php if($values->id == $value->city_id) { echo "selected";} ?>>{{$values->city_name}}</option>
+                                       @endforeach
                                     </select>
                                     @if($errors->has('city_id'))
                                     <span class="text-danger">{{$errors->first('city_id')}}</span>
@@ -425,7 +429,7 @@ $(document).ready(function(){
                 },
                 company: {
                     required:"Please Choose Company Name",
-                },      
+                },
            },
         })
     }
@@ -435,10 +439,11 @@ $(document).ready(function(){
     if(countryID){
         $.ajax({
            type:"GET",
-           url:"{{url('get-state-list')}}?country_id="+countryID,
+           url:" {{ URL::to('/get-state-list') }}?country_id="+countryID,
            success:function(res){               
             if(res){
                 $("#state").empty();
+                console.log(res);
                 $.each(res,function(key,entry){
                     $("#state").append($('<option></option>').attr('value', entry.id).text(entry.state_name));
                 });
@@ -455,32 +460,33 @@ $(document).ready(function(){
    });
    $('#state').change(function(){
        var StateId = $(this).val();
+      
        if(StateId!='' && StateId!='undefined')
        {
          $.ajax({
             type: "GET",
-            url : "{{'get-cities-list'}}?State_id="+StateId,
+            dataType: "json",
+            url : "{{ URL::to('/get-cities-list') }}?State_id="+StateId,
             success:function(res){
+                console.log(res);
                 if(res)
                 {
                     $('#city').empty();
                     $.each(res,function(key,entry){
                         $('#city').append($('<option></option>').attr('value',entry.id).text(entry.city_name));
                         
-                    });   
+                    });
                 }else{
                     $('#city').empty();
                 }
-                console.log(res);
+               // console.log(res);
             }
          });
        }else{
            $('#city').empty();
        }
    });
-   $("#country").trigger('change');
-   $("#state").trigger('change');
-   $("#city").trigger('change');
+  // $("#country").trigger('change');
     });
 </script>
 @stop

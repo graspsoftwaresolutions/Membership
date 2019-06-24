@@ -466,9 +466,9 @@ $(document).ready(function(){
            $('#city').empty();
        }
    });
-   $("#country").trigger('change');
-   $("#state").trigger('change');
-   $("#city").trigger('change');
+//    $("#country").trigger('change');
+//    $("#state").trigger('change');
+//    $("#city").trigger('change');
     });
 </script>
 @stop

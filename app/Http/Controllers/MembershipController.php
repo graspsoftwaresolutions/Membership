@@ -23,6 +23,7 @@ class MembershipController extends Controller
     public function index()
     {
         $data['country_view'] = DB::table('country')->select('id','country_name')->where('status','=','1')->get();
+      
         $data['company_view'] = DB::table('company')->where('status','=','1')->get();
         $data['designation_view'] = DB::table('designation')->where('status','=','1')->get();
         $data['race_view'] = DB::table('race')->where('status','=','1')->get();
@@ -69,6 +70,7 @@ class MembershipController extends Controller
                 return response()->json($res);
     }
     public function getCitiesList(Request $request){
+       // print_r($request);die;
         $id = $request->State_id;
         $res = DB::table('city')
         ->select('id','city_name')
@@ -76,7 +78,7 @@ class MembershipController extends Controller
             ['state_id','=',$id],
             ['status','=','1']
         ])->get();
-       print_r($res); exit;
+       
         return response()->json($res);
     }
     public function Save(Request $request)
@@ -180,12 +182,16 @@ class MembershipController extends Controller
                                     ['race.status','=','1'],
                                     ['designation.status','=','1'],
                                     ['membership.id','=',$id]
-                                ])->get();           
+                                ])->get();   
+        $country_id = $data['member_view'][0]->country_id;
+        $state_id = $data['member_view'][0]->state_id;
+        $city_id = $data['member_view'][0]->city_id;
+        $data['state_view'] = DB::table('state')->select('id','state_name')->where('status','=','1')->where('country_id','=',$country_id)->get();
+        $data['city_view'] = DB::table('city')->select('id','city_name')->where('status','=','1')->where('state_id','=',$state_id)->get();
         $data['country_view'] = DB::table('country')->select('id','country_name')->where('status','=','1')->get();
         $data['company_view'] = DB::table('company')->where('status','=','1')->get();
         $data['designation_view'] = DB::table('designation')->where('status','=','1')->get();
-        $data['race_view'] = DB::table('race')->where('status','=','1')->get();
-        
+        $data['race_view'] = DB::table('race')->where('status','=','1')->get();        
         return view('membership.edit_membership')->with('data',$data); 
    
     }
@@ -211,6 +217,8 @@ class MembershipController extends Controller
         $member['old_ic'] = $request->input('old_ic');
         $member['new_ic'] = $request->input('new_ic');
         $member['company_id'] = $request->input('company_id');
+     
+       // dd($member); exit;
         $id = DB::table('membership')->where('id','=',$id)->update($member);
         return redirect('membership')->with('message','Member Details Edited Successfull');
     }
