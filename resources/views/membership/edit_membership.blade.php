@@ -29,10 +29,11 @@
         	<div class="widget">
         	<div class="activity-sec">
                     <div class="row">
-                        <form method="post" id="membership" action="{{url('membership_update')}}">
+                        <form method="post" id="membership" action=" {{url('membership_update')}}">
                         @foreach($data['member_view'] as $key=>$value)
                         @csrf
-                        <input type="hidden" name="id" value="{{$value->id}}">
+                        <input type="hidden" name="id" value="{{$value->mid}}">
+                        
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">

@@ -165,7 +165,10 @@ class MembershipController extends Controller
     }
     public function edit($id)
     {
-        $data['member_view'] = DB::table('membership')
+        $data['member_view'] = DB::table('membership')->select('membership.id as mid','membership.member_title','membership.member_number','membership.name','membership.gender','membership.designation_id','membership.email','membership.phone',
+                                        'membership.country_id','membership.state_id','membership.city_id','membership.address_one','membership.address_two','membership.address_three','membership.race_id','membership.old_ic','membership.new_ic',
+                                        'membership.dob','membership.doj','company_id','membership.password','membership.user_type','membership.status','country.id','country.country_name','country.status','state.id','state.state_name','state.status',
+                                        'city.id','city.city_name','city.status','company.id','company.company_name','company.status','designation.id','designation.designation_name','designation.status','race.id','race.race_name','race.status')
                                 ->join('country','membership.country_id','=','country.id')
                                 ->join('state','membership.state_id','=','state.id')
                                 ->join('city','membership.city_id','=','city.id')
@@ -174,15 +177,16 @@ class MembershipController extends Controller
                                 ->join('designation','membership.designation_id','=','designation.id')
                                 ->join('user_type','user_type.uid','=','membership.user_type')
                                 ->where([
-                                    ['membership.status','=','1'],
                                     ['country.status','=','1'],
                                     ['state.status','=','1'],
                                     ['city.status','=','1'],
                                     ['company.status','=','1'],
                                     ['race.status','=','1'],
                                     ['designation.status','=','1'],
+                                    ['membership.status','=','1'],
                                     ['membership.id','=',$id]
-                                ])->get();   
+                                ])->get();
+        
         $country_id = $data['member_view'][0]->country_id;
         $state_id = $data['member_view'][0]->state_id;
         $city_id = $data['member_view'][0]->city_id;
@@ -191,13 +195,15 @@ class MembershipController extends Controller
         $data['country_view'] = DB::table('country')->select('id','country_name')->where('status','=','1')->get();
         $data['company_view'] = DB::table('company')->where('status','=','1')->get();
         $data['designation_view'] = DB::table('designation')->where('status','=','1')->get();
-        $data['race_view'] = DB::table('race')->where('status','=','1')->get();        
+        $data['race_view'] = DB::table('race')->where('status','=','1')->get();
+             
         return view('membership.edit_membership')->with('data',$data); 
    
     }
     public function update(Request $request)
     {
         $id = $request->input('id');
+       
         $member['member_title'] = $request->input('member_title');
         $member['member_number'] = $request->input('member_number');
         $member['name'] = $request->input('name');
@@ -218,9 +224,11 @@ class MembershipController extends Controller
         $member['new_ic'] = $request->input('new_ic');
         $member['company_id'] = $request->input('company_id');
      
-       // dd($member); exit;
+       
         $id = DB::table('membership')->where('id','=',$id)->update($member);
         return redirect('membership')->with('message','Member Details Edited Successfull');
+        
+        
     }
     public function delete($id)
 	{
