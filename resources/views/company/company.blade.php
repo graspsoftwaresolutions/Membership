@@ -34,11 +34,17 @@
                     <tbody>
                     @foreach($data['company'] as $key=>$value)
                         <tr>
+                        <?php
+                        $parameter =[
+                            'id' =>$value->id,
+                        ];
+                         $parameter = Crypt::encrypt($parameter);      
+                         ?>
                         <td>{{$value->company_name}}</td>
                            <td> {{$value->owner_name}}</td>
                            <td> {{$value->phone}}</td>
                            <td> {{$value->email}}</td>
-                           <td><a href="{{url('company-view/').'/'.$value->id}}">View </a>|<a href="{{url('company-edit/').'/'.$value->id}}">Edit</a>|<a href="{{url('company-delete/').'/'.$value->id}}">Delete</a></td>
+                           <td><a href="{{url('company-view/').'/'.$parameter}}">View </a>|<a href="{{url('company-edit/').'/'.$parameter}}">Edit</a>|<a href="{{url('company-delete/').'/'.$value->id}}">Delete</a></td>
                          </tr>
                        @endforeach 
                     </tbody>   

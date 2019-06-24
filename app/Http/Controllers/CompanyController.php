@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Http\Request;
 use App\Company;
 use DB;
@@ -64,11 +64,13 @@ class CompanyController extends Controller
     } 
     public function view($id)
     {
+        $id = Crypt::decrypt($id);
         $data['company_view'] = DB::table('company')->where('id','=',$id)->get(); 
         return view('company.view_company')->with('data',$data);
     }
     public function edit($id)
     {
+        $id = Crypt::decrypt($id);
         $data['company_edit'] = DB::table('company')->where('id','=',$id)->get(); 
         return view('company.edit_company')->with('data',$data);
     }

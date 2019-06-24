@@ -32,9 +32,15 @@
                     <tbody>
                     @foreach($data['country_view'] as $key=>$value)
                         <tr>
+                        <?php
+                        $parameter =[
+                            'id' =>$value->id,
+                        ];
+                         $parameter = Crypt::encrypt($parameter);  
+                         ?>
                             <td>{{$value->country_name}}</td>
                             <td>Active</td>
-                            <td><a href="{{url('country-view/').'/'.$value->id}}">View </a>|<a href="{{url('country-edit/').'/'.$value->id}}">Edit</a>|<a href="{{url('country-delete/').'/'.$value->id}}">Delete</a></td>
+                            <td><a href="{{url('country-view/').'/'.$parameter}}">View </a>|<a href="{{url('country-edit/').'/'.$parameter}}">Edit</a>|<a href="{{url('country-delete/').'/'.$value->id}}">Delete</a></td>
                       </tr>
                       @endforeach
                     </tbody>   

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Crypt;
 
 use Illuminate\Http\Request;
 use App\Country;
@@ -48,11 +49,13 @@ class CountryController extends Controller
     }
     public function view($id)
     {
+        $id = Crypt::decrypt($id);
         $data['country_view'] = DB::table('country')->where('id','=',$id)->get(); 
         return view('country.view_country')->with('data',$data);
     }
     public function edit($id)
     {
+        $id = Crypt::decrypt($id);
         $data['country_edit'] = DB::table('country')->where('id','=',$id)->get(); 
         return view('country.edit_country')->with('data',$data);
     }

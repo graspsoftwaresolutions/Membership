@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Crypt;
 
 use Illuminate\Http\Request;
 use App\City;
@@ -78,6 +79,7 @@ class CityController extends Controller
     }
     public function view($id)
     {
+        $id = Crypt::decrypt($id);
         $data['city_view'] =  DB::table('country')
         ->join('state','country.id','=','state.country_id')
         ->join('city','city.state_id','=','state.id')
@@ -89,6 +91,7 @@ class CityController extends Controller
     }
     public function edit($id)
     {
+        $id = Crypt::decrypt($id);
         $data['city_view'] =  DB::table('country')
         ->join('state','country.id','=','state.country_id')
         ->join('city','city.state_id','=','state.id')

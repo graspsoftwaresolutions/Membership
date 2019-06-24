@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Crypt;
 
 use Illuminate\Http\Request;
 use App\Designation;
@@ -48,17 +49,19 @@ class DesignationController extends Controller
     }
     public function view($id)
     {
+        $id = Crypt::decrypt($id);
         $data['designation_view'] = DB::table('designation')->where([
-            ['designation_name','=',$race['designation_name']],
-            ['status','=','1']
+            ['status','=','1'],
+            ['id','=',$id]
             ])->get();
         return view('designation.view_designation')->with('data',$data);
     }
     public function edit($id)
     {
+        $id = Crypt::decrypt($id);
         $data['designation_view'] = DB::table('designation')->where([
-            ['designation_name','=',$race['designation_name']],
-            ['status','=','1']
+            ['status','=','1'],
+            ['id','=',$id]
             ])->get();
         return view('designation.edit_designation')->with('data',$data);
     }

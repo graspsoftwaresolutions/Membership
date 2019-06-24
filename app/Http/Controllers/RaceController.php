@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Crypt;
 
 use Illuminate\Http\Request;
 use App\Race;
@@ -48,6 +49,7 @@ class RaceController extends Controller
     }
     public function view($id)
     {
+        $id = Crypt::decrypt($id);
         $data['race_view'] = DB::table('race')->where([
             ['status','=','1'],
             ['id','=',$id]
@@ -56,6 +58,7 @@ class RaceController extends Controller
     }
     public function edit($id)
     {
+        $id = Crypt::decrypt($id);
         $data['race_edit'] = DB::table('race')->where([
             ['status','=','1'],
             ['id','=',$id]

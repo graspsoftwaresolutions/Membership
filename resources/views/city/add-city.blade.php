@@ -6,9 +6,7 @@
 </div>
 @endif
 @if(session('errors'))
-<div class="alert alert-danger" id="id">
-{{session('errors')}}
-</div>
+
 @endif
 <script src="http://www.codermen.com/js/jquery.js"></script>
 <div class="row">

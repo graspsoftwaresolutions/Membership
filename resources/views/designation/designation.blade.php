@@ -33,9 +33,15 @@
                     <tbody>
                     @foreach($data['designation_view'] as $key=>$value)
                         <tr>
+                        <?php
+                        $parameter =[
+                            'id' =>$value->id,
+                        ];
+                         $parameter = Crypt::encrypt($parameter);      
+                         ?>
                             <td>{{$value->designation_name}}</td>
                             <td>Active</td>
-                            <td><a href="{{url('designation-view/').'/'.$value->id}}">View </a>|<a href="{{url('designation-edit/').'/'.$value->id}}">Edit</a>|<a href="{{url('designation-delete/').'/'.$value->id}}">Delete</a></td>
+                            <td><a href="{{url('designation-view/').'/'.$parameter}}">View </a>|<a href="{{url('designation-edit/').'/'.$parameter}}">Edit</a>|<a href="{{url('designation-delete/').'/'.$value->id}}">Delete</a></td>
                       </tr>
                       @endforeach
                     </tbody>   

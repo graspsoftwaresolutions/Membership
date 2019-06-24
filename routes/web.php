@@ -23,16 +23,16 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/company','CompanyController@index');
 Route::get('/add-company','CompanyController@addCompany');
 Route::post('/company_save','CompanyController@save');
-Route::get('company-view/{id}','CompanyController@view');
-Route::get('company-edit/{id}','CompanyController@edit');
+Route::get('company-view/{parameter}','CompanyController@view');
+Route::get('company-edit/{parameter}','CompanyController@edit');
 Route::post('company_edit','CompanyController@update');
 Route::get('company-delete/{id}','CompanyController@delete');
 //Country Details
 Route::get('country','CountryController@index');
 Route::get('add-country','CountryController@addCountry');
 Route::post('country_save','CountryController@save');
-Route::get('country-view/{id}','CountryController@view');
-Route::get('country-edit/{id}','CountryController@edit');
+Route::get('country-view/{parameter}','CountryController@view');
+Route::get('country-edit/{parameter}','CountryController@edit');
 Route::post('country_edit','CountryController@update');
 Route::get('country-delete/{id}','CountryController@delete');
 //State Details 
@@ -48,24 +48,24 @@ Route::get('city','CityController@index');
 Route::get('add-city','CityController@addCity');
 Route::get('get-state-order-list','CityController@getStateorderList');
 Route::post('city_save','CityController@save');
-Route::get('city-view/{id}','CityController@view');
-Route::get('city-edit/{id}','CityController@edit');
+Route::get('city-view/{parameter}','CityController@view');
+Route::get('city-edit/{parameter}','CityController@edit');
 Route::post('city_update','CityController@update');
 Route::get('city-delete/{id}','CityController@delete');
 //Designation
 Route::get('designation','DesignationController@index');
 Route::get('add-designation','DesignationController@addDesignation');
 Route::post('designation_save','DesignationController@save');
-Route::get('designation-view/{id}','DesignationController@view');
-Route::get('designation-edit/{id}','DesignationController@edit');
+Route::get('designation-view/{parameter}','DesignationController@view');
+Route::get('designation-edit/{parameter}','DesignationController@edit');
 Route::post('update_designation','DesignationController@update');
 Route::get('designation-delete/{id}','DesignationController@delete');
 //Race 
 Route::get('race','RaceController@index');
 Route::get('add-race','RaceController@addRace');
 Route::post('race_save','RaceController@save');
-Route::get('race-view/{id}','RaceController@view');
-Route::get('race-edit/{id}','RaceController@edit');
+Route::get('race-view/{parameter}','RaceController@view');
+Route::get('race-edit/{parameter}','RaceController@edit');
 Route::post('race_update','RaceController@update');
 Route::get('race-delete/{id}','RaceController@delete');
 
@@ -73,8 +73,8 @@ Route::get('race-delete/{id}','RaceController@delete');
 Route::get('membership','MembershipController@index');
 Route::get('membership_register','MembershipController@addMember');
 Route::post('membership_save','MembershipController@Save');
-Route::get('membership-view/{id}','MembershipController@view');
-Route::get('membership-edit/{id}','MembershipController@edit');
+Route::get('membership-view/{parameter}','MembershipController@view');
+Route::get('membership-edit/{parameter}','MembershipController@edit');
 Route::post('membership_update','MembershipController@update');
 Route::get('membership-delete/{id}','MembershipController@delete');
 

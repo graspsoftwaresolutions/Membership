@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Crypt;
 
 use Illuminate\Http\Request;
 use App\Membership;
@@ -35,6 +36,7 @@ class MembershipController extends Controller
     }
     public function view($id)
     {
+        $id = Crypt::decrypt($id);
         $data['member_view'] = DB::table('membership')
                                 ->join('country','membership.country_id','=','country.id')
                                 ->join('state','membership.state_id','=','state.id')
@@ -165,6 +167,7 @@ class MembershipController extends Controller
     }
     public function edit($id)
     {
+        $id = Crypt::decrypt($id);
         $data['member_view'] = DB::table('membership')->select('membership.id as mid','membership.member_title','membership.member_number','membership.name','membership.gender','membership.designation_id','membership.email','membership.phone',
                                         'membership.country_id','membership.state_id','membership.city_id','membership.address_one','membership.address_two','membership.address_three','membership.race_id','membership.old_ic','membership.new_ic',
                                         'membership.dob','membership.doj','company_id','membership.password','membership.user_type','membership.status','country.id','country.country_name','country.status','state.id','state.state_name','state.status',
