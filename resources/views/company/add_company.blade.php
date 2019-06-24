@@ -5,9 +5,13 @@
 {{session('message')}}
 </div>
 @endif
+<<<<<<< HEAD
 @if(session('errors'))
 
 @endif
+=======
+
+>>>>>>> f02c6a33624fd394da78e098af44fdf7ecf18127
 <div class="row">
         	<div class="customer-header">
         	<div class="col-md-8">
