@@ -5,11 +5,7 @@
 {{session('message')}}
 </div>
 @endif
-@if(session('errors'))
-<div class="alert alert-danger" id="id">
-{{session('errors')}}
-</div>
-@endif
+
 <div class="row">
         	<div class="customer-header">
         	<div class="col-md-8">
