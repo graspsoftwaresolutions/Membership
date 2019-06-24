@@ -28,14 +28,15 @@
         	<div class="activity-sec">
                  
                     <div class="row">
-                        <form method="post" autocomplete="off" id="membership" action="{{url('membership_save')}}">
+                        <form method="post" id="membership" action="{{url('membership_save')}}">
                         @csrf
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                 <label for="Name" class="control-label col-md-4">Member Title</label>
+                                 <label for="Name" class="control-label col-md-4">Member Title <span style="color:red">*<span></label>
                                  <div class="col-md-7"> 
-                                    <input type="text" placeholder="Enter Member Title" name="member_title" id="member_title" class="form-control">
+                                    <input type="text" tabindex="1" placeholder="Enter Member Title" name="member_title" id="member_title" class="form-control">
+                                   
                                     @if($errors->has('member_title'))
                                     <span class="text-danger">{{$errors->first('member_title')}}</span>
                                     @endif
@@ -44,9 +45,9 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                 <label for="Name" class="control-label col-md-4">Member Number</label>
+                                 <label for="Name" class="control-label col-md-4">Member Number <span style="color:red">*<span></label>
                                  <div class="col-md-7"> 
-                                    <input type="text" placeholder="Enter Member Number" name="member_number" id="member_number" class="form-control">
+                                    <input type="text" tabindex="2" placeholder="Enter Member Number" name="member_number" id="member_number" class="form-control">
                                     @if($errors->has('member_number'))
                                     <span class="text-danger">{{$errors->first('member_number')}}</span>
                                     @endif
@@ -57,9 +58,9 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                 <label for="Name" class="control-label col-md-4">Member Name</label>
+                                 <label for="Name" class="control-label col-md-4">Member Name <span style="color:red">*<span></label>
                                  <div class="col-md-7"> 
-                                    <input type="text" placeholder="Enter Member Name" name="name" id="name" class="form-control">
+                                    <input type="text" tabindex="3" placeholder="Enter Member Name" name="name" id="name" class="form-control">
                                     @if($errors->has('name'))
                                     <span class="text-danger">{{$errors->first('name')}}</span>
                                     @endif
@@ -68,10 +69,10 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                 <label for="exampleInputEmail1" class="control-label col-md-4">Gender</label>
+                                 <label for="exampleInputEmail1" class="control-label col-md-4">Gender <span style="color:red">*<span></label>
                                  <div class="col-md-7"> 
-                                    <input type="radio" name="gender" id="gender">Male
-                                    <input type="radio" name="gender" id="gender">Female
+                                    <input type="radio" tabindex="4" name="gender" id="gender" value="male">Male
+                                    <input type="radio" name="gender" id="gender" value="female">Female
                                     @if($errors->has('gender'))
                                     <span class="text-danger">{{$errors->first('gender')}}</span>
                                     @endif
@@ -82,9 +83,9 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                 <label for="Name" class="control-label col-md-4">Mobile Number</label>
+                                 <label for="Name" class="control-label col-md-4">Mobile Number<span style="color:red">*<span></label>
                                  <div class="col-md-7"> 
-                                    <input type="text" placeholder="Enter Mobile Number" name="phone" id="phone" class="form-control">
+                                    <input type="text" tabindex="5" placeholder="Enter Mobile Number" name="phone" id="phone" class="form-control">
                                     <span id="errmsg"></span>
                                     @if($errors->has('phone'))  
                                     <span class="text-danger" >{{$errors->first('phone')}}</span>
@@ -94,9 +95,9 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                 <label for="exampleInputEmail1" class="control-label col-md-4">Email</label>
+                                 <label for="exampleInputEmail1" class="control-label col-md-4">Email <span style="color:red">*<span></label>
                                  <div class="col-md-7"> 
-                                    <input type="email" name="email" id="email" placeholder="Enter email" id="exampleInputEmail1" class="form-control">
+                                    <input type="email" tabindex="6" name="email" id="email" placeholder="Enter email" id="exampleInputEmail1" class="form-control">
                                     @if($errors->has('email'))
                                     <span class="text-danger">{{$errors->first('email')}}</span>
                                     @endif
@@ -107,9 +108,9 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                 <label for="Name" class="control-label col-md-4">Designation</label>
+                                 <label for="Name" class="control-label col-md-4">Designation <span style="color:red">*<span></label>
                                  <div class="col-md-7"> 
-                                    <select name="designation" id="designation" class="form-control">
+                                    <select tabindex="7" name="designation" id="designation" class="form-control">
                                     @foreach($data['designation_view'] as $key=>$value)
                                     <option value="{{$value->id}}">{{$value->designation_name}}</option>
                                     @endforeach
@@ -122,9 +123,9 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                 <label for="Race" class="control-label col-md-4">Race</label>
+                                 <label for="Race" class="control-label col-md-4">Race <span style="color:red">*<span></label>
                                  <div class="col-md-7"> 
-                                    <select name="race" id="race" class="form-control">
+                                    <select tabindex="8" name="race" id="race" class="form-control">
                                     @foreach($data['race_view'] as $key=>$value)
                                     <option value="{{$value->id}}">{{$value->race_name}}</option>
                                     @endforeach
@@ -139,9 +140,9 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                 <label for="Name" class="control-label col-md-4">Country Name</label>
+                                 <label for="Name" class="control-label col-md-4">Country Name <span style="color:red">*<span></label>
                                  <div class="col-md-7"> 
-                                 <select class="form-control" name="country_id" id="country">
+                                 <select tabindex="9" class="form-control" name="country_id" id="country">
                                         @foreach($data['country_view'] as $value)
                                         <option value="{{$value->id}}">{{$value->country_name}}</option>
                                         @endforeach
@@ -154,9 +155,9 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                 <label for="exampleInputEmail1" class="control-label col-md-4">State Name</label>
+                                 <label for="exampleInputEmail1" class="control-label col-md-4">State Name <span style="color:red">*<span></label>
                                  <div class="col-md-7"> 
-                                 <select name="state_id" id="state" class="form-control">
+                                 <select tabindex="10" name="state_id" id="state" class="form-control">
                                         
                                 </select>
                                 @if($errors->has('state_id'))
@@ -169,9 +170,9 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                 <label for="Name" class="control-label col-md-4">City Name</label>
+                                 <label for="Name" class="control-label col-md-4">City Name <span style="color:red">*<span></label>
                                  <div class="col-md-7"> 
-                                 <select class="form-control" name="city_id" id="city">
+                                 <select tabindex="11" class="form-control" name="city_id" id="city">
                                         
                                     </select>
                                     @if($errors->has('city_id'))
@@ -182,9 +183,9 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                 <label for="Name" class="control-label col-md-4">Addresss line 1</label>
+                                 <label for="Name" class="control-label col-md-4">Addresss line 1 <span style="color:red">*<span></label>
                                  <div class="col-md-7"> 
-                                    <textarea class="form-control" name="address_one" id="address_one" placeholder="Enter Address"></textarea>
+                                    <textarea tabindex="12" class="form-control" name="address_one" id="address_one" placeholder="Enter Address"></textarea>
                                     @if($errors->has('address_one'))
                                     <span class="text-danger">{{$errors->first('address_one')}}</span>
                                     @endif
@@ -197,7 +198,7 @@
                                 <div class="form-group">
                                  <label for="exampleInputEmail1" class="control-label col-md-4">Addresss line 2</label>
                                  <div class="col-md-7"> 
-                                 <textarea name="address_two" id="address_two"  class="form-control" placeholder="Enter Address"></textarea>
+                                 <textarea tabindex="13" name="address_two" id="address_two"  class="form-control" placeholder="Enter Address"></textarea>
                                 
                                  </div>
                                  </div>
@@ -206,7 +207,7 @@
                                 <div class="form-group">
                                  <label for="exampleInputEmail1" class="control-label col-md-4">Addresss line 3</label>
                                  <div class="col-md-7"> 
-                                 <textarea name="address_three" id="address_three"  class="form-control" placeholder="Enter Address"></textarea>
+                                 <textarea tabindex="14" name="address_three" id="address_three"  class="form-control" placeholder="Enter Address"></textarea>
                                  
                                  </div>
                                  </div>
@@ -215,9 +216,9 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                 <label for="Name" class="control-label col-md-4">Date of Birth</label>
+                                 <label for="Name" class="control-label col-md-4">Date of Birth <span style="color:red">*<span></label>
                                  <div class="col-md-7"> 
-                                    <input type="date" placeholder="Enter Old IC Number" name="dob" id="dob" class="form-control">
+                                    <input tabindex="15" type="date" placeholder="Enter Old IC Number" name="dob" id="dob" class="form-control">
                                     @if($errors->has('dob'))
                                     <span class="text-danger">{{$errors->first('dob')}}</span>
                                     @endif
@@ -228,7 +229,7 @@
                                 <div class="form-group">
                                  <label for="exampleInputEmail1" class="control-label col-md-4">Date of Joinig</label>
                                  <div class="col-md-7"> 
-                                    <input type="date" name="doj" id="doj" placeholder="DOJ" id="doj" class="form-control">
+                                    <input type="date" tabindex="16" name="doj" id="doj" placeholder="DOJ" id="doj" class="form-control">
                                     @if($errors->has('doj'))
                                     <span class="text-danger">{{$errors->first('doj')}}</span>
                                     @endif
@@ -241,16 +242,16 @@
                                 <div class="form-group">
                                  <label for="Name" class="control-label col-md-4">Old IC Number</label>
                                  <div class="col-md-7"> 
-                                    <input type="text" placeholder="Enter Old IC Number" name="old_ic" id="phonold_ic" class="form-control">
+                                    <input type="text" tabindex="17" placeholder="Enter Old IC Number" name="old_ic" id="phonold_ic" class="form-control">
                                    
                                  </div>
                                  </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                 <label for="exampleInputEmail1" class="control-label col-md-4">New Ic Number</label>
+                                 <label for="exampleInputEmail1" class="control-label col-md-4">New Ic Number<span style="color:red">*<span></label>
                                  <div class="col-md-7"> 
-                                    <input type="text" name="new_ic" id="new_ic" placeholder="Enter New IC number" id="exampleInputEmail1" class="form-control">
+                                    <input type="text" tabindex="18" name="new_ic" id="new_ic" placeholder="Enter New IC number" id="exampleInputEmail1" class="form-control">
                                     @if($errors->has('new_ic'))
                                     <span class="text-danger">{{$errors->first('new_ic')}}</span>
                                     @endif
@@ -261,10 +262,10 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                 <label for="Name" class="control-label col-md-4">Company</label>
+                                 <label for="Name" class="control-label col-md-4">Company <span style="color:red">*<span></label>
                                  <div class="col-md-7"> 
                                    
-                                        <select name="company_id" id="company" class="form-control">
+                                        <select name="company_id" tabindex="19" id="company" class="form-control">
                                         @foreach($data['company_view'] as $key=>$value) 
                                         <option value="{{$value->id}}">{{$value->company_name}}</option>
                                         @endforeach
@@ -279,7 +280,7 @@
                         <br>
                         <div class="row">
                             <div class="wrapper">            
-                                    <input type="submit" name="submit" value="Register" class="btn btn-success">
+                                    <input type="submit" tabindex="20" name="submit" value="Register" class="btn btn-success">
                                     <input type="submit" name="Cancel" value="Cancel" class="btn btn-danger">
                             </div>
                         </div> 
@@ -465,6 +466,9 @@ $(document).ready(function(){
            $('#city').empty();
        }
    });
+   $("#country").trigger('change');
+   $("#state").trigger('change');
+   $("#city").trigger('change');
     });
 </script>
 @stop

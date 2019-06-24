@@ -102,7 +102,7 @@
                     <li><a href="{{url('city')}}" title=""><i class="fa fa-user"></i> <span>City Details</a></li>
                     <li><a href="{{url('designation')}}" title=""><i class="fa fa-user"></i> <span>Designation Details</a></li>
                     <li><a href="{{url('race')}}" title=""><i class="fa fa-user"></i> <span>Race Details</a></li>
-                    <li><a href="{{url('membership_register')}}" title=""><i class="fa fa-user"></i> <span>Membership Register</a></li>
+                    <li><a href="{{url('membership')}}" title=""><i class="fa fa-user"></i> <span>Membership Register</a></li>
                     <!-- <li class="menu-item-has-children">
                     <a href="" title=""><i class="fa fa-file"></i> <span>Stock Details</a> 
                         <ul>

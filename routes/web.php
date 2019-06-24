@@ -70,9 +70,16 @@ Route::post('race_update','RaceController@update');
 Route::get('race-delete/{id}','RaceController@delete');
 
 //Membership 
-Route::get('membership_register','MembershipController@index');
+Route::get('membership','MembershipController@index');
+Route::get('membership_register','MembershipController@addMember');
 Route::post('membership_save','MembershipController@Save');
+Route::get('membership-view/{id}','MembershipController@view');
+Route::get('membership-edit/{id}','MembershipController@edit');
+Route::post('membership_update','MembershipController@update');
+Route::get('membership-delete/{id}','MembershipController@delete');
 
 Route::get('dropdownlist','MembershipController@countries_list');
 Route::get('get-state-list','MembershipController@getStateList');
 Route::get('get-cities-list','MembershipController@getCitiesList');
+
+Route::get('mail','MailController@index');
