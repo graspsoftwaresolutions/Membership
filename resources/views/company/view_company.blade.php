@@ -31,7 +31,7 @@
                                 <div class="form-group">
                                  <label for="Name" class="control-label col-md-4">Company Name</label>
                                  <div class="col-md-7"> 
-                                    <input type="text" value="{{$value->company_name}}" placeholder="Enter Company Name" name="company_name" id="company_name" class="form-control">
+                                    <input type="text" disabled value="{{$value->company_name}}" placeholder="Enter Company Name" name="company_name" id="company_name" class="form-control">
                                    
                                  </div>
                                  </div>
@@ -40,7 +40,7 @@
                                 <div class="form-group">
                                  <label for="Name" class="control-label col-md-4">Owner Name</label>
                                  <div class="col-md-7"> 
-                                    <input type="text" value="{{$value->owner_name}}" placeholder="Enter Owner Name" name="owner_name" id="owner_name" class="form-control">
+                                    <input type="text" disabled value="{{$value->owner_name}}" placeholder="Enter Owner Name" name="owner_name" id="owner_name" class="form-control">
                                  </div>
                                  </div>
                             </div>
@@ -50,7 +50,7 @@
                                 <div class="form-group">
                                  <label for="Name" class="control-label col-md-4">Mobile Number</label>
                                  <div class="col-md-7"> 
-                                    <input type="text" value="{{$value->phone}}"  placeholder="Enter Mobile Number" name="phone" id="phone" class="form-control">
+                                    <input type="text" disabled value="{{$value->phone}}"  placeholder="Enter Mobile Number" name="phone" id="phone" class="form-control">
                                     
                                  </div>
                                  </div>
@@ -59,7 +59,7 @@
                                 <div class="form-group">
                                  <label for="exampleInputEmail1" class="control-label col-md-4">Email</label>
                                  <div class="col-md-7"> 
-                                    <input type="email" value="{{$value->email}}" name="email" id="email" placeholder="Enter email" id="exampleInputEmail1" class="form-control">
+                                    <input type="email" disabled disabled value="{{$value->email}}" name="email" id="email" placeholder="Enter email" id="exampleInputEmail1" class="form-control">
                                     
                                  </div>
                                  </div>
@@ -70,7 +70,7 @@
                                 <div class="form-group">
                                  <label for="Name" class="control-label col-md-4">Addresss line 1</label>
                                  <div class="col-md-7"> 
-                                    <textarea class="form-control" name="address_one" id="address_one" placeholder="Enter Address">{{$value->address_one}}</textarea> 
+                                    <textarea class="form-control" disabled name="address_one" id="address_one" placeholder="Enter Address">{{$value->address_one}}</textarea> 
                                  </div>
                                  </div>
                             </div>
@@ -78,7 +78,7 @@
                                 <div class="form-group">
                                  <label for="exampleInputEmail1" class="control-label col-md-4">Addresss line 2</label>
                                  <div class="col-md-7"> 
-                                 <textarea name="address_two" id="address_two" id="address_two" class="form-control" placeholder="Enter Address">{{$value->address_two}}</textarea>
+                                 <textarea name="address_two" disabled id="address_two" id="address_two" class="form-control" placeholder="Enter Address">{{$value->address_two}}</textarea>
                                  
                                  </div>
                                  </div>
