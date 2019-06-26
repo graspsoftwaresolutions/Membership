@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 use App\State;
 use App\Country;
 use DB;
@@ -57,6 +58,7 @@ class StateController extends Controller
     }
     public function view($id)
     {
+        $id = Crypt::decrypt($id);
         $data = DB::table('country')->select('country.country_name','state.state_name','state.id','state.country_id','state.status')
                 ->join('state','country.id','=','state.country_id')
                 ->where('state.id','=',$id)->get();
@@ -64,6 +66,7 @@ class StateController extends Controller
     }
     public function edit($id)
     {
+        $id = Crypt::decrypt($id);
         $data = DB::table('country')->select('country.country_name','state.state_name','state.id','state.country_id','state.status','state.id')
                 ->join('state','country.id','=','state.country_id')
                 ->where('state.id','=',$id)->get();

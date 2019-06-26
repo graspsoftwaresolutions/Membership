@@ -39,8 +39,8 @@ Route::get('country-delete/{id}','CountryController@delete');
 Route::get('state','StateController@index');
 Route::get('add-state','StateController@addState');
 Route::post('state_save','StateController@save');
-Route::get('state-view/{id}','StateController@view');
-Route::get('state-edit/{id}','StateController@edit');
+Route::get('state-view/{parameter}','StateController@view');
+Route::get('state-edit/{parameter}','StateController@edit');
 Route::post('state_edit','StateController@update');
 Route::get('state-delete/{id}','StateController@delete');
 //City Details 
@@ -68,8 +68,25 @@ Route::get('race-view/{parameter}','RaceController@view');
 Route::get('race-edit/{parameter}','RaceController@edit');
 Route::post('race_update','RaceController@update');
 Route::get('race-delete/{id}','RaceController@delete');
+//Fee
+Route::get('fee','FeeController@index');
+Route::get('add-fee','FeeController@addFee');
+Route::post('fee_save','FeeController@save');
+Route::get('fee-view/{parameter}','FeeController@view');
+Route::get('fee-edit/{parameter}','FeeController@edit');
+Route::post('fee_update','FeeController@update');
+Route::get('fee-delete/{id}','FeeController@delete');
+//branch
+Route::get('branch','BranchController@index');
+Route::get('add-branch','BranchController@addBranch');
+Route::post('branch_save','BranchController@save');
+Route::get('branch-view/{parameter}','BranchController@view');
+Route::get('branch-edit/{parameter}','BranchController@edit');
+Route::post('branch_update','BranchController@update');
+Route::get('branch-delete/{id}','BranchController@delete');
 
-//Membership 
+
+//Membership
 Route::get('membership','MembershipController@index');
 Route::get('membership_register','MembershipController@addMember');
 Route::post('membership_save','MembershipController@Save');

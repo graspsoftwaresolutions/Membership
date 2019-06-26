@@ -13,10 +13,10 @@
 <div class="row">
         	<div class="customer-header">
         	<div class="col-md-8">
-        	<h5><strong>State Details</strong></h5>
+        	<h5><strong>Branch Details</strong></h5>
         	</div>
 	        <div class="col-md-4">
-	        	<a class="cust" href="{{url('add-state')}}">Add New State</a>
+	        	<a class="cust" href="{{url('add-branch')}}">Add New branch</a>
 	        </div>
 	    	</div>
         	<div class="widget">
@@ -24,8 +24,8 @@
                     <table id="home-table2" class="table datatable">
                     <thead>
                         <tr>
-                           	<td>Country Name</td>
-                            <td>State Name</td>
+                           	<td>Company Name</td>
+                            <td>Branch Name</td>
                             <td> Action</td>
                          </tr>
                     </thead>
@@ -36,9 +36,9 @@
                         $parameter = ['id'=>$value->id];
                         $parameter = Crypt::encrypt($parameter);  
                         ?>
-                            <td>{{$value->country_name}}</td>
-                            <td>{{$value->state_name}}</td>
-                            <td><a href="{{url('state-view/').'/'.$parameter}}">View </a>|<a href="{{url('state-edit/').'/'.$parameter}}">Edit</a>|<a href="{{url('state-delete/').'/'.$value->id}}">Delete</a></td>
+                            <td>{{$value->company_name}}</td>
+                            <td>{{$value->branch_name}}</td>
+                            <td><a href="{{url('branch-view/').'/'.$parameter}}">View </a>|<a href="{{url('branch-edit/').'/'.$parameter}}">Edit</a>|<a href="{{url('branch-delete/').'/'.$value->id}}">Delete</a></td>
                          </tr>
                          @endforeach
                     </tbody>   
