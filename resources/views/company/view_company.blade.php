@@ -59,7 +59,11 @@
                                 <div class="form-group">
                                  <label for="exampleInputEmail1" class="control-label col-md-4">Email</label>
                                  <div class="col-md-7"> 
+<<<<<<< HEAD
                                     <input type="email" disabled value="{{$value->email}}" name="email" id="email" placeholder="Enter email" id="exampleInputEmail1" class="form-control">
+=======
+                                    <input type="email" disabled disabled value="{{$value->email}}" name="email" id="email" placeholder="Enter email" id="exampleInputEmail1" class="form-control">
+>>>>>>> 5bb8821c49885cb957f81d378956004314e763b2
                                     
                                  </div>
                                  </div>
@@ -70,7 +74,11 @@
                                 <div class="form-group">
                                  <label for="Name" class="control-label col-md-4">Addresss line 1</label>
                                  <div class="col-md-7"> 
+<<<<<<< HEAD
                                     <textarea disabled class="form-control" name="address_one" id="address_one" placeholder="Enter Address">{{$value->address_one}}</textarea> 
+=======
+                                    <textarea class="form-control" disabled name="address_one" id="address_one" placeholder="Enter Address">{{$value->address_one}}</textarea> 
+>>>>>>> 5bb8821c49885cb957f81d378956004314e763b2
                                  </div>
                                  </div>
                             </div>
@@ -78,7 +86,11 @@
                                 <div class="form-group">
                                  <label for="exampleInputEmail1" class="control-label col-md-4">Addresss line 2</label>
                                  <div class="col-md-7"> 
+<<<<<<< HEAD
                                  <textarea disabled name="address_two" id="address_two" id="address_two" class="form-control" placeholder="Enter Address">{{$value->address_two}}</textarea>
+=======
+                                 <textarea name="address_two" disabled id="address_two" id="address_two" class="form-control" placeholder="Enter Address">{{$value->address_two}}</textarea>
+>>>>>>> 5bb8821c49885cb957f81d378956004314e763b2
                                  
                                  </div>
                                  </div>

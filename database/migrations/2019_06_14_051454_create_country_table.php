@@ -17,7 +17,7 @@ class CreateCountryTable extends Migration
             $table->bigIncrements('id');
             $table->string('country_name');
             $table->timestamps();
-            $table->string('status');
+            $table->string('status')->default('0');
         });
     }
 
