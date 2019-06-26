@@ -17,7 +17,7 @@ class CreateDesignationTable extends Migration
             $table->bigIncrements('id');
             $table->string('designation_name');
             $table->timestamps();
-            $table->integer('status');
+            $table->integer('status')->default(1);
         });
     }
 

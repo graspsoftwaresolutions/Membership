@@ -97,8 +97,14 @@ class CityController extends Controller
         ->join('city','city.state_id','=','state.id')
         ->where([
             ['city.id','=',$id],
-            ['city.status','=','1']
+            ['city.status','=','1'],
+            ['state.status','=','1'],
+            ['country.status','=','1']
         ])->get();
+        $country_id = $data['city_view'][0]->country_id;
+        $state_id = $data['city_view'][0]->state_id;
+        $data['country_view'] = DB::table('country')->where('status','=','1')->get();
+        $data['state_view'] = DB::table('state')->where('status','=','1')->get();
         return view('city.edit_city')->with('data',$data);
     }
     public function update(Request $request)

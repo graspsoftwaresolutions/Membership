@@ -103,8 +103,13 @@
                     <li><a href="{{url('designation')}}" title=""><i class="fa fa-user"></i> <span>Designation Details</a></li>
                     <li><a href="{{url('race')}}" title=""><i class="fa fa-user"></i> <span>Race Details</a></li>
                     <li><a href="{{url('fee')}}" title=""><i class="fa fa-user"></i> <span>Fee Details</a></li>
+                    <li><a href="{{url('reason')}}" title=""><i class="fa fa-user"></i> <span>Reason Details</a></li>
                     <li><a href="{{url('branch')}}" title=""><i class="fa fa-user"></i> <span>Branch Details</a></li>
+                    <li><a href="{{url('unionbranch')}}" title=""><i class="fa fa-user"></i> <span>Union Branch Details</a></li>
+                    <li><a href="{{url('persontitle')}}" title=""><i class="fa fa-user"></i> <span>Add Person Title Details</a></li>
+                    <li><a href="{{url('relation')}}" title=""><i class="fa fa-user"></i> <span>Member Relation Setup</a></li>
                     <li><a href="{{url('membership')}}" title=""><i class="fa fa-user"></i> <span>Membership Register</a></li>
+                    
                     
                     <!-- <li class="menu-item-has-children">
                     <a href="" title=""><i class="fa fa-file"></i> <span>Stock Details</a> 

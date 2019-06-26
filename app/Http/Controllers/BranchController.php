@@ -82,7 +82,7 @@ class BranchController extends Controller
                     ['branch.id','=',$id]
                     ])->get();
         $company_id = $data['branch_view'][0]->company_id;
-        $data['company_view'] = DB::table('company')->where('id','=',$company_id)->get();
+        $data['company_view'] = DB::table('company')->where('status','=','1')->get();
         return view('branch.edit_branch')->with('data',$data);
     }
     public function update(Request $request)

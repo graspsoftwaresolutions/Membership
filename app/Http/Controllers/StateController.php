@@ -67,9 +67,11 @@ class StateController extends Controller
     public function edit($id)
     {
         $id = Crypt::decrypt($id);
-        $data = DB::table('country')->select('country.country_name','state.state_name','state.id','state.country_id','state.status','state.id')
+        $data['state_view'] = DB::table('country')->select('country.country_name','state.state_name','state.id','state.country_id','state.status','state.id')
                 ->join('state','country.id','=','state.country_id')
                 ->where('state.id','=',$id)->get();
+        $country_id = $data['state_view'][0]->country_id;    
+        $data['country_view'] = DB::table('country')->where('status','=','1')->get();    
         return view('state.edit_state',compact('data',$data));
     }
     public function update(Request $request)

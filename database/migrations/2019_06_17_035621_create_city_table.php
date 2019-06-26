@@ -19,7 +19,7 @@ class CreateCityTable extends Migration
             $table->integer('state_id');
             $table->string('city_name');
             $table->timestamps();
-            $table->integer('status');
+            $table->integer('status')->default(1);
         });
     }
 

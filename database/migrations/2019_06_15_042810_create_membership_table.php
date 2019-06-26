@@ -26,19 +26,19 @@ class CreateMembershipTable extends Migration
             $table->integer('state');
             $table->integer('city');
             $table->string('address_one');
-            $table->string('address_two');
-            $table->string('address_three');
+            $table->string('address_two')->nullable();
+            $table->string('address_three')->nullable();
             $table->integer('race_id');
-            $table->string('old_ic');
+            $table->string('old_ic')->nullable();
             $table->string('new_ic');
             $table->date('dob');
-            $table->date('doj');
-            $table->string('email_verified_at');
-            $table->string('password');
-            $table->integer('user_type');
-            $table->string('is_request_approved');   
+            $table->date('doj')->nullable();
+            $table->string('email_verified_at')->nullable();
+            $table->string('password')->nullable();
+            $table->integer('user_type')->nullable();
+            $table->string('is_request_approved')->nullable();   
             $table->timestamps();
-            $table->integer('status');
+            $table->integer('status')->default(1);
         });
     }
 

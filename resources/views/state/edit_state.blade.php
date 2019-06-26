@@ -24,7 +24,7 @@
                  
                     <div class="row">
                         <form method="post" action="{{url('state_edit')}}">
-                        @foreach($data as $value)
+                        @foreach($data['state_view'] as $value)
                         @csrf
                         <input type="hidden" name="id" value="{{$value->id}}">
                         <div class="row">
@@ -33,7 +33,9 @@
                                  <label for="Name" class="control-label col-md-4">Country Name</label>
                                  <div class="col-md-7"> 
                                     <select class="form-control" name="country_id" > 
-                                        <option  value="{{$value->id}}">{{$value->country_name}}</option>
+                                    @foreach($data['country_view'] as $values)
+                                        <option  value="{{$values->id}}" <?php if($values->id == $value->country_id) { echo "selected";} ?> >{{$values->country_name}}</option>
+                                    @endforeach
                                     </select>
                                  </div>
                                  </div>

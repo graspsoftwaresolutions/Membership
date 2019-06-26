@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRaceTable extends Migration
+class CreateUnionBranchTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateRaceTable extends Migration
      */
     public function up()
     {
-        Schema::create('race', function (Blueprint $table) {
+        Schema::create('union_branch', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('race_name');
+            $table->string('union_branch');
+            $table->string('is_head');
             $table->timestamps();
             $table->integer('status')->default(1);
         });
@@ -28,6 +29,6 @@ class CreateRaceTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('race');
+        Schema::dropIfExists('union_branch');
     }
 }

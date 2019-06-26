@@ -84,8 +84,38 @@ Route::get('branch-view/{parameter}','BranchController@view');
 Route::get('branch-edit/{parameter}','BranchController@edit');
 Route::post('branch_update','BranchController@update');
 Route::get('branch-delete/{id}','BranchController@delete');
-
-
+//Member Relation Setup
+Route::get('relation','RelationController@index');
+Route::get('add-relation','RelationController@addRelation');
+Route::post('relation_save','RelationController@save');
+Route::get('relation-view/{parameter}','RelationController@view');
+Route::get('relation-edit/{parameter}','RelationController@edit');
+Route::post('relation_update','RelationController@update');
+Route::get('relation-delete/{id}','RelationController@delete');
+//Person Tiltle Setup
+Route::get('persontitle','PersontitleController@index');
+Route::get('add-title','PersontitleController@addTitle');
+Route::post('persontitle_save','PersontitleController@save');
+Route::get('title-view/{parameter}','PersontitleController@view');
+Route::get('persontitle-edit/{parameter}','PersontitleController@edit');
+Route::post('persontitle_update','PersontitleController@update');
+Route::get('persontitle-delete/{id}','PersontitleController@delete');
+//Reason
+Route::get('reason','ReasonController@index');
+Route::get('add-reason','ReasonController@addReason');
+Route::post('reason_save','ReasonController@save');
+Route::get('reason-view/{parameter}','ReasonController@view');
+Route::get('reason-edit/{parameter}','ReasonController@edit');
+Route::post('reason_update','ReasonController@update');
+Route::get('reason-delete/{id}','ReasonController@delete');
+//Union Branch
+Route::get('unionbranch','UnionBranchController@index');
+Route::get('add-unionbranch','UnionBranchController@addUnionBranch');
+Route::post('unionbranch_save','UnionBranchController@save');
+Route::get('unionbranch-view/{parameter}','UnionBranchController@view');
+Route::get('unionbranch-edit/{parameter}','UnionBranchController@edit');
+Route::post('unionbranch_update','UnionBranchController@update');
+Route::get('unionbranch-delete/{id}','UnionBranchController@delete');
 //Membership
 Route::get('membership','MembershipController@index');
 Route::get('membership_register','MembershipController@addMember');

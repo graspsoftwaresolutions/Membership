@@ -11,10 +11,10 @@
 <div class="row">
         	<div class="customer-header">
         	<div class="col-md-8">
-        	<h5><strong>Branch Details</strong></h5>
+        	<h5><strong>Union Branch Details</strong></h5>
         	</div>
 	        <div class="col-md-4">
-	        	<a class="cust" href="{{url('add-branch')}}">Add New branch</a>
+	        	<a class="cust" href="{{url('add-unionbranch')}}">Add New Union branch</a>
 	        </div>
 	    	</div>
         	<div class="widget">
@@ -22,21 +22,21 @@
                     <table id="home-table2" class="table datatable">
                     <thead>
                         <tr>
-                           	<td>Company Name</td>
-                            <td>Branch Name</td>
+                           	<td>Union Branch Name</td>
+                            <td>Head</td>
                             <td> Action</td>
                          </tr>
                     </thead>
                     <tbody>
-                    @foreach($data as $value)
+                    @foreach($data['union_view'] as $value)
                         <tr>
                         <?php
                         $parameter = ['id'=>$value->id];
                         $parameter = Crypt::encrypt($parameter);  
                         ?>
-                            <td>{{$value->company_name}}</td>
-                            <td>{{$value->branch_name}}</td>
-                            <td><a href="{{url('branch-view/').'/'.$parameter}}">View </a>|<a href="{{url('branch-edit/').'/'.$parameter}}">Edit</a>|<a href="{{url('branch-delete/').'/'.$value->id}}">Delete</a></td>
+                            <td>{{$value->union_branch}}</td>
+                            <td>{{$value->is_head}}</td>
+                            <td><a href="{{url('unionbranch-view/').'/'.$parameter}}">View </a>|<a href="{{url('unionbranch-edit/').'/'.$parameter}}">Edit</a>|<a href="{{url('unionbranch-delete/').'/'.$value->id}}">Delete</a></td>
                          </tr>
                          @endforeach
                     </tbody>   

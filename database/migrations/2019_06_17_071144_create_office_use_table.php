@@ -24,7 +24,7 @@ class CreateOfficeUseTable extends Migration
             $table->date('paid_from');
             $table->date('paid_to');
             $table->timestamps();
-            $table->integer('status');
+            $table->integer('status')->default(1);
         });
     }
 

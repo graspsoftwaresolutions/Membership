@@ -10,6 +10,7 @@
 {{session('errors')}}
 </div>
 @endif
+<script src="http://www.codermen.com/js/jquery.js"></script>
 <div class="row">
         	<div class="customer-header">
         	<div class="col-md-8">
@@ -33,22 +34,26 @@
                                 <div class="form-group">
                                  <label for="Name" class="control-label col-md-4">Country Name</label>
                                  <div class="col-md-7">
-                                    <input type="textbox" disabled="true" class="form-control" name="country_name" value="{{$value->country_name}}">
+                                 <select name="country_id" id="country" class="form-control">
+                                 @foreach($data['country_view'] as $values)
+                                        <option value="{{$values->id}}"<?php if($values->id == $value->country_id) { echo "selected";}?>>{{$values->country_name}}</option>
+                                        @endforeach
+                                        </select>
                                  </div>
                                  </div>
                                  <div class="form-group">
                                  <label for="Name" class="control-label col-md-4">State Name</label>
                                  <div class="col-md-7"> 
 
-                                 <select name="state_id" id="state" class="form-control" disabled="true">
-                                 @foreach($data['city_view'] as $value)
-                                        <option value="{{$value->state_id}}">{{$value->state_name}}</option>
+                                 <select name="state_id" id="state" class="form-control">
+                                 @foreach($data['state_view'] as $values)
+                                        <option value="{{$values->id}}"<?php if($values->id == $value->state_id) { echo "selected";}?>>{{$values->state_name}}</option>
                                         @endforeach
                                         </select>
                                  </div>
                                  </div>
                             </div>
-                        </div><br>
+                        </div><br>        
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
@@ -80,10 +85,11 @@ $(document).ready(function(){
     if(countryID){
         $.ajax({
            type:"GET",
-           url:"{{url('get-state-order-list')}}?country_id="+countryID,
+           url:" {{ URL::to('/get-state-list') }}?country_id="+countryID,
            success:function(res){               
             if(res){
                 $("#state").empty();
+                console.log(res);
                 $.each(res,function(key,entry){
                     $("#state").append($('<option></option>').attr('value', entry.id).text(entry.state_name));
                 });
@@ -95,8 +101,38 @@ $(document).ready(function(){
         });
     }else{
         $("#state").empty();
+        $("#city").empty();
     }      
    });
+   $('#state').change(function(){
+       var StateId = $(this).val();
+      
+       if(StateId!='' && StateId!='undefined')
+       {
+         $.ajax({
+            type: "GET",
+            dataType: "json",
+            url : "{{ URL::to('/get-cities-list') }}?State_id="+StateId,
+            success:function(res){
+                console.log(res);
+                if(res)
+                {
+                    $('#city').empty();
+                    $.each(res,function(key,entry){
+                        $('#city').append($('<option></option>').attr('value',entry.id).text(entry.city_name));
+                        
+                    });
+                }else{
+                    $('#city').empty();
+                }
+               // console.log(res);
+            }
+         });
+       }else{
+           $('#city').empty();
+       }
+   });
+   $("#country").trigger('change');
 });
 </script>
 @stop

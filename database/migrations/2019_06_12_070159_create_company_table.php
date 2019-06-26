@@ -19,10 +19,10 @@ class CreateCompanyTable extends Migration
             $table->string('owner_name');
             $table->integer('phone');
             $table->string('email');
-            $table->string('address_one');
-            $table->string('address_two');
+            $table->string('address_one')->nullable();
+            $table->string('address_two')->nullable();
             $table->timestamps();
-            $table->integer('status');
+            $table->integer('status')->default(1);
         });
     }
 
