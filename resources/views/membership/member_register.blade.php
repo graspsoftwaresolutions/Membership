@@ -35,8 +35,11 @@
                                 <div class="form-group">
                                  <label for="Name" class="control-label col-md-4">Member Title <span style="color:red">*<span></label>
                                  <div class="col-md-7"> 
-                                    <input type="text" tabindex="1" placeholder="Enter Member Title" name="member_title" id="member_title" class="form-control">
-                                   
+                                    <select tabindex="1" name="member_title" id="member_title" class="form-control">
+                                    @foreach($data['title_view'] as $key=>$value)
+                                    <option value="{{$value->id}}">{{$value->person_title}}</option>
+                                    @endforeach
+                                    </select>
                                     @if($errors->has('member_title'))
                                     <span class="text-danger">{{$errors->first('member_title')}}</span>
                                     @endif
@@ -265,13 +268,13 @@
                                  <label for="Name" class="control-label col-md-4">Company <span style="color:red">*<span></label>
                                  <div class="col-md-7"> 
                                    
-                                        <select name="company_id" tabindex="19" id="company" class="form-control">
-                                        @foreach($data['company_view'] as $key=>$value) 
-                                        <option value="{{$value->id}}">{{$value->company_name}}</option>
+                                        <select name="branch_id" tabindex="19" id="branch" class="form-control">
+                                        @foreach($data['branch_view'] as $key=>$value) 
+                                        <option value="{{$value->id}}">{{$value->branch_name}}</option>
                                         @endforeach
                                         </select>
-                                        @if($errors->has('company_id'))
-                                    <span class="text-danger">{{$errors->first('company_id')}}</span>
+                                        @if($errors->has('branch_id'))
+                                    <span class="text-danger">{{$errors->first('branch_id')}}</span>
                                     @endif
                                  </div>
                                  </div>

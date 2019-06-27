@@ -6,9 +6,7 @@
 </div>
 @endif
 @if(session('errors'))
-<div class="alert alert-danger" id="id">
-{{session('errors')}}
-</div>
+
 @endif
 <div class="row">
         	<div class="customer-header">
@@ -27,7 +25,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                 <label for="Name" class="control-label col-md-4">Race Name</label>
+                                 <label for="Name" class="control-label col-md-4">Race Name <span style="color:red">*<span></label>
                                  <div class="col-md-7"> 
                                     <input type="text" placeholder="Enter Race Name" name="race_name" id="race_name" class="form-control">
                                     @if($errors->has('race_name'))

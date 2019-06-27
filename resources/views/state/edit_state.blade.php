@@ -30,7 +30,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                 <label for="Name" class="control-label col-md-4">Country Name</label>
+                                 <label for="Name" class="control-label col-md-4">Country Name <span style="color:red">*<span></label>
                                  <div class="col-md-7"> 
                                     <select class="form-control" name="country_id" > 
                                     @foreach($data['country_view'] as $values)
@@ -40,7 +40,7 @@
                                  </div>
                                  </div>
                                  <div class="form-group">
-                                 <label for="Name" class="control-label col-md-4">State Name</label>
+                                 <label for="Name" class="control-label col-md-4">State Name <span style="color:red">*<span></label>
                                  <div class="col-md-7"> 
                                     <input type="text"  placeholder="Enter State Name" value="{{$value->state_name}}" name="state_name" id="state_name" class="form-control">
                                  </div>

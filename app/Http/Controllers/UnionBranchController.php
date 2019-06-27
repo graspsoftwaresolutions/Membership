@@ -122,7 +122,6 @@ class UnionBranchController extends Controller
                 ])->count(); 
             if($is_head_exists > 0 && !empty($union['is_head']))
             {
-                
                 $data = DB::table('union_branch')->where('is_head','=','1')->update(['is_head'=>'0']);
                 $id = DB::table('union_branch')->where('id','=',$id)->update($union);
                 return redirect('unionbranch')->with('message','Union Branch Name Updated Succesfully');
@@ -138,5 +137,4 @@ class UnionBranchController extends Controller
 		$data = DB::table('union_branch')->where('id','=',$id)->update(['status'=>'0']);
 		return redirect('unionbranch')->with('message','Union Branch Deleted Succesfully');
 	}
-    
 }

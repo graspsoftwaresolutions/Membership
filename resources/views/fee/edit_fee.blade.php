@@ -29,7 +29,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                 <label for="Name" class="control-label col-md-4">Fee Name</label>
+                                 <label for="Name" class="control-label col-md-4">Fee Name <span style="color:red">*<span></label>
                                  <div class="col-md-7"> 
                                     <input type="text" value="{{$value->fee_name}}" placeholder="Enter Fee Name" name="fee_name" id="fee_name" class="form-control">
                                    

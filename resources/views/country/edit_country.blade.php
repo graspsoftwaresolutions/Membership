@@ -29,7 +29,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                 <label for="Name" class="control-label col-md-4">Country Name</label>
+                                 <label for="Name" class="control-label col-md-4">Country Name <span style="color:red">*<span></label>
                                  <div class="col-md-7"> 
                                     <input type="text" value="{{$value->country_name}}" placeholder="Enter Country Name" name="country_name" id="country_name" class="form-control">
                                    

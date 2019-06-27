@@ -11,7 +11,7 @@
 <div class="row">
         	<div class="customer-header">
         	<div class="col-md-8">
-        	<h5><strong>Relation Details</strong></h5>
+        	<h5><strong>Person Title Details</strong></h5>
         	</div>
 	        <div class="col-md-4">
 	        	<a class="cust" href="{{url('add-title')}}">Add New Title</a>

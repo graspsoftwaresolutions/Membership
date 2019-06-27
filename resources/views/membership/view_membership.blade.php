@@ -37,7 +37,7 @@
                                 <div class="form-group">
                                  <label for="Name" class="control-label col-md-4">Member Title <span style="color:red">*<span></label>
                                  <div class="col-md-7"> 
-                                    <input type="text" disabled value="{{$value->member_title}}" tabindex="1" placeholder="Enter Member Title" name="member_title" id="member_title" class="form-control">
+                                    <input type="text" disabled value="{{$value->person_title}}" tabindex="1" placeholder="Enter Member Title" name="member_title" id="member_title" class="form-control">
                                    
                                     @if($errors->has('member_title'))
                                     <span class="text-danger">{{$errors->first('member_title')}}</span>
@@ -74,9 +74,7 @@
                                  <label for="exampleInputEmail1" class="control-label col-md-4">Gender <span style="color:red">*<span></label>
                                  <div class="col-md-7"> 
                                  <input type="radio" disabled name="gender"  value="male" {{ $value->gender == 'male' ? 'checked' : '' }} >Male
-                                 <input type="radio" disabled  name="gender"  value="female" {{ $value->gender == 'female' ? 'checked' : '' }} >Female
-                                
-                                    
+                                 <input type="radio" disabled  name="gender"  value="female" {{ $value->gender == 'female' ? 'checked' : '' }} >Female  
                                     @if($errors->has('gender'))
                                     <span class="text-danger">{{$errors->first('gender')}}</span>
                                     @endif
@@ -266,16 +264,16 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                 <label for="Name" class="control-label col-md-4">Company <span style="color:red">*<span></label>
+                                 <label for="Name" class="control-label col-md-4">Branch <span style="color:red">*<span></label>
                                  <div class="col-md-7"> 
                                    
-                                        <select name="company_id" disabled tabindex="19" id="company" class="form-control">
+                                        <select name="branch_id" disabled tabindex="19" id="branch" class="form-control">
                                         
-                                        <option value="{{$value->id}}">{{$value->company_name}}</option>
+                                        <option value="{{$value->id}}">{{$value->branch_name}}</option>
                                        
                                         </select>
-                                        @if($errors->has('company_id'))
-                                    <span class="text-danger">{{$errors->first('company_id')}}</span>
+                                        @if($errors->has('branch_id'))
+                                    <span class="text-danger">{{$errors->first('branch_id')}}</span>
                                     @endif
                                  </div>
                                  </div>

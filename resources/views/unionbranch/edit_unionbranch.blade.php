@@ -29,7 +29,7 @@
                             <div class="col-md-12">
                                 
                                  <div class="form-group">
-                                 <label for="Name" class="control-label col-md-4">Branch Name</label>
+                                 <label for="Name" class="control-label col-md-4">Branch Name <span style="color:red">*<span></label>
                                  <div class="col-md-7"> 
                                     <input type="text" placeholder="Enter Branch Name" name="branch_name" value="{{$value->union_branch}}" id="branch_name" class="form-control">
                                     @if($errors->has('branch_name'))

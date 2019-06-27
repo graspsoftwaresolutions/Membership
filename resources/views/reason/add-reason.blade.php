@@ -25,7 +25,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                 <label for="Name" class="control-label col-md-4">Reason Name</label>
+                                 <label for="Name" class="control-label col-md-4">Reason Name <span style="color:red">*<span></label>
                                  <div class="col-md-7"> 
                                     <input type="text" placeholder="Enter Reason Name" name="reason_name" id="reason_name" class="form-control">
                                     @if($errors->has('reason_name'))

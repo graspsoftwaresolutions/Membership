@@ -16,7 +16,7 @@ class CreateMembershipTable extends Migration
         Schema::create('membership', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('member_number');
-            $table->string('member_title');
+            $table->integer('member_title_id');
             $table->string('name');
             $table->string('gender');
             $table->integer('designation_id');
@@ -33,6 +33,7 @@ class CreateMembershipTable extends Migration
             $table->string('new_ic');
             $table->date('dob');
             $table->date('doj')->nullable();
+            $table->integer('branch_id');
             $table->string('email_verified_at')->nullable();
             $table->string('password')->nullable();
             $table->integer('user_type')->nullable();

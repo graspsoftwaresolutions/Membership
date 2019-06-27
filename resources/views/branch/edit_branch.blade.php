@@ -28,7 +28,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                 <label for="Name" class="control-label col-md-4">Company Name</label>
+                                 <label for="Name" class="control-label col-md-4">Company Name <span style="color:red">*<span></label>
                                  <div class="col-md-7">
                                     <select class="form-control" name="company_id">
                                     @foreach($data['company_view'] as $key=>$value)
@@ -38,7 +38,7 @@
                                  </div>
                                  </div>
                                  <div class="form-group">
-                                 <label for="Name" class="control-label col-md-4">Branch Name</label>
+                                 <label for="Name" class="control-label col-md-4">Branch Name <span style="color:red">*<span></label>
                                  <div class="col-md-7"> 
                                     <input type="text" value="{{$values->branch_name}}"  placeholder="Enter Branch Name" name="branch_name" id="branch_name" class="form-control">
                                     @if($errors->has('branch_name'))

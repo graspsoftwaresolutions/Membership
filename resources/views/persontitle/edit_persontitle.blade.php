@@ -11,7 +11,7 @@
 <div class="row">
         	<div class="customer-header">
         	<div class="col-md-8">
-        	<h5><strong> View Person title Details</strong></h5>
+        	<h5><strong> Edit Person title Details</strong></h5>
         	</div>
 	        <div class="col-md-4">
 	        	<a class="cust" href="{{url('persontitle')}}">Back</a>
@@ -27,7 +27,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                 <label for="Name" class="control-label col-md-4">Title Name</label>
+                                 <label for="Name" class="control-label col-md-4">Title Name <span style="color:red">*<span></label>
                                  <div class="col-md-7"> 
                                     <input type="text"  placeholder="Enter Title Name" value="{{$value->person_title}}" name="person_title" id="person_title" class="form-control">
                                     @if($errors->has('person_title'))

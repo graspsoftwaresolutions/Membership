@@ -23,7 +23,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                 <label for="Name" class="control-label col-md-4">Company Name</label>
+                                 <label for="Name" class="control-label col-md-4">Company Name <span style="color:red">*<span></label>
                                  <div class="col-md-7"> 
                                     <input type="text" placeholder="Enter Company Name" name="company_name" id="company_name" class="form-control">
                                     @if($errors->has('company_name'))
@@ -34,7 +34,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                 <label for="Name" class="control-label col-md-4">Owner Name</label>
+                                 <label for="Name" class="control-label col-md-4">Owner Name <span style="color:red">*<span></label>
                                  <div class="col-md-7"> 
                                     <input type="text" placeholder="Enter Owner Name" name="owner_name" id="owner_name" class="form-control">
                                     @if($errors->has('owner_name'))
@@ -47,7 +47,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                 <label for="Name" class="control-label col-md-4">Mobile Number</label>
+                                 <label for="Name" class="control-label col-md-4">Mobile Number <span style="color:red">*<span></label>
                                  <div class="col-md-7"> 
                                     <input type="text" placeholder="Enter Mobile Number" name="phone" id="phone" class="form-control">
                                     @if($errors->has('phone'))
@@ -58,7 +58,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                 <label for="exampleInputEmail1" class="control-label col-md-4">Email</label>
+                                 <label for="exampleInputEmail1" class="control-label col-md-4">Email <span style="color:red">*<span></label>
                                  <div class="col-md-7"> 
                                     <input type="email" name="email" id="email" placeholder="Enter email" id="exampleInputEmail1" class="form-control">
                                     @if($errors->has('email'))
@@ -71,7 +71,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                 <label for="Name" class="control-label col-md-4">Addresss line 1</label>
+                                 <label for="Name" class="control-label col-md-4">Addresss line 1 <span style="color:red">*<span></label>
                                  <div class="col-md-7"> 
                                     <textarea class="form-control" name="address_one" id="address_one" placeholder="Enter Address"></textarea>
                                     @if($errors->has('address_one'))
@@ -82,7 +82,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                 <label for="exampleInputEmail1" class="control-label col-md-4">Addresss line 2</label>
+                                 <label for="exampleInputEmail1" class="control-label col-md-4">Addresss line 2 <span style="color:red">*<span></label>
                                  <div class="col-md-7"> 
                                  <textarea name="address_two" id="address_two" id="address_two" class="form-control" placeholder="Enter Address"></textarea>
                                  @if($errors->has('company_name'))

@@ -26,7 +26,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                 <label for="Name" class="control-label col-md-4">Designation Name</label>
+                                 <label for="Name" class="control-label col-md-4">Designation Name <span style="color:red">*<span></label>
                                  <div class="col-md-7"> 
                                     <input type="text" placeholder="Enter Designation Name" name="designation_name" id="designation_name" class="form-control">
                                     @if($errors->has('designation_name'))
